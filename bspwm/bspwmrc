@@ -2,8 +2,11 @@
 
 sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+# Monitor setup
+bspc monitor -d DVI-D-0 VI VII VIII IX X
+bspc monitor -d HDMI-0 I II III IV V
 
+# Config
 bspc config border_width         2
 bspc config window_gap          12
 
@@ -12,8 +15,12 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
+# Window rules
 bspc rule -a Gimp state=floating follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-#panel &
+# Custom commands
+xrandr --output DVI-D-0 --right-of HDMI-0
+feh --bg-scale ~/Wallpapers/melt.jpg
+panel &
