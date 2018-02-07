@@ -3,8 +3,8 @@
 sxhkd &
 
 # Monitor setup
-bspc monitor -d DVI-D-0 VI VII VIII IX X
-bspc monitor -d HDMI-0 I II III IV V
+bspc monitor HDMI-0 -d main term dev media gimp misc
+bspc monitor DVI-D-0 -d misc1 misc2 misc3
 
 # Config
 bspc config border_width         2
@@ -17,10 +17,6 @@ bspc config focus_follows_pointer true
 
 # Window rules
 bspc rule -a Gimp state=floating follow=on
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
-# Custom commands
-xrandr --output DVI-D-0 --right-of HDMI-0
-feh --bg-scale ~/Wallpapers/melt.jpg
-panel &
+# Start polybar
+polybar example &
